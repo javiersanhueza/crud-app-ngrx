@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 
 import * as fromStore from './store';
 import { Customer } from './models/customer.model';
+import { CustomerService } from './services/customer.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,19 @@ import { Customer } from './models/customer.model';
 export class AppComponent {
   public customers: Customer[] = [];
 
-  constructor(private store: Store<fromStore.AppState>) {
-    store.select('customers').subscribe(
+  constructor(
+    private store: Store<fromStore.AppState>,
+    private customerService: CustomerService
+  ) {
+    /* store.select('customers').subscribe(
       response => {
         this.customers = response.data;
+      }
+    ) */
+    customerService.getCustomers().subscribe(
+      response => {
+        this.customers = response;
+        console.log(response);
       }
     )
   }
