@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as fromStore from './store';
+import { Customer } from './models/customer.model';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,12 @@ import * as fromStore from './store';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'crud-app-ngrx';
+  public customers: Customer[] = [];
 
   constructor(private store: Store<fromStore.AppState>) {
     store.select('customers').subscribe(
       response => {
-        console.log(response);
+        this.customers = response.data;
       }
     )
   }

@@ -1,3 +1,40 @@
 <div class="container">
-  <button class="btn btn-success">Click me</button>
+  <form style="background: #428bca; padding-top: 20px; margin-top: 20px; padding-bottom: 20px">
+    <div class="form-group">
+      <div class="input-group" style="padding-left: 10px; width: 100% !important;">
+        <input id="filter" name="text" placeholder="Búsqueda" type="text">
+        <i id="filterIcon" class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+  </form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Email</th>
+        <th>Eliminar</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.age }}</td>
+        <td>{{ customer.email }}</td>
+        <td>
+          <button class="btn btn-danger">
+            <i class="fa-solid fa-trash"></i>
+            Eliminar
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-pencil"></i>
+            Editar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -13,16 +13,19 @@ export const initialState: CustomerState = {
     {
       id: 5,
       name: 'Javier Sanhueza',
+      age: 30,
       email: 'javier@javier.cl'
     },
     {
       id: 6,
       name: 'Theo Sanhueza',
+      age: 1,
       email: 'theo@theo.cl'
     },
     {
       id: 7,
       name: 'Iveth Riveros',
+      age: 32,
       email: 'iveth@iveth.cl'
     }
   ],
